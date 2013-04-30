@@ -12,8 +12,9 @@
         android:allowBackup="true"
         android:icon="@drawable/twit"
         android:label="@string/app_name"
+        android:logo="@drawable/face"
         android:theme="@style/AppTheme"
-        android:uiOptions="splitActionBarWhenNarrow" android:logo="@drawable/face">
+        android:uiOptions="splitActionBarWhenNarrow" >
         <activity
             android:name="com.example.actionbar.MainActivity"
             android:label="@string/app_name" >
@@ -22,6 +23,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.actionbar.SecondScreen"
+            android:label="@string/title_activity_second_screen" >
         </activity>
     </application>
 

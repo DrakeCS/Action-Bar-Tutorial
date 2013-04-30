@@ -2,48 +2,31 @@
 //As well as http://www.youtube.com/watch?v=Rv5tRtPiGpc
 package com.example.actionbar;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
-public class MainActivity extends Activity {
-	private final String TAG = "Main Activity";
+public class MainActivity extends BaseActivity {
+	//private final String TAG = "Main Activity";
 
+	Button button;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		button = (Button) findViewById(R.id.PressMe);
+		button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), SecondScreen.class);
+				startActivity(intent);
+			}
+		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		//The line below initializes the action bar, but doesnt actually add items.
-		//This is done in the main.xml file in the menu folder
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-	//This is where the magic happens. When a menu item is clicked, the switch statement handles what
-	//should be shown in the LogCat.
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-		case R.id.twitter:
-			Log.i(TAG, "Twitter Item Clicked");
-			return true;
-		case R.id.facebook:
-			Log.i(TAG, "Facebook Item Clicked");
-			return true;
-		case R.id.refresh:
-			Log.i(TAG, "Refresh Item Clicked");
-			return true;
-		default:
-				return super.onOptionsItemSelected(item);
-			
-		}
-	}
-
+	
+	
 }
